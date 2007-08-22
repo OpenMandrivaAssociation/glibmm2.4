@@ -6,6 +6,8 @@
 %define major 1
 %define libname_orig %mklibname %{pkgname} %{api_version}
 %define libname %mklibname %{pkgname} %{api_version} %{major}
+%define libnamedev %mklibname -d %{pkgname} %{api_version}
+%define libnamestaticdev %mklibname -s -d %{pkgname} %{api_version}
 
 Name:		%{pkgname}%{api_version}
 Summary:	C++ interface for glib
@@ -40,25 +42,27 @@ This package contains the library needed to run programs dynamically
 linked with %{pkgname}.
 
 
-%package	-n %{libname}-devel
+%package	-n %{libnamedev}
 Summary:	Headers and development files of %{pkgname}
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
+Obsoletes: %mklibname -d %{pkgname} %{api_version} 1
 
-%description	-n %{libname}-devel
+%description	-n %{libnamedev}
 This package contains the headers and development files that are needed,
 when trying to develop or compile applications which need %{pkgname}.
 
 
-%package	-n %{libname}-static-devel
+%package	-n %{libnamestaticdev}
 Summary:	Static libraries of %{pkgname}
 Group:		Development/GNOME and GTK+
-Requires:	%{libname}-devel = %{version}
+Requires:	%{libnamedev} = %{version}
 Provides:	%{libname_orig}-static-devel = %{version}-%{release}
+Obsoletes: %mklibname -s -d %{pkgname} %{api_version} 1
 
-%description	-n %{libname}-static-devel
+%description	-n %{libnamestaticdev}
 Gtkmm provides a C++ interface to the GTK+ GUI library.
 %{pkgname} originally belongs to gtkmm, but is now separated,
 for use with non-GUI software written in C++.
@@ -104,7 +108,7 @@ rm -rf %{buildroot}
 %doc COPYING NEWS README
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{libnamedev}
 %defattr(-, root, root)
 %doc AUTHORS CHANGES ChangeLog
 %{_includedir}/*
@@ -114,7 +118,7 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
 
-%files -n %{libname}-static-devel
+%files -n %{libnamestaticdev}
 %defattr(-, root, root)
 %{_libdir}/*.a
 
