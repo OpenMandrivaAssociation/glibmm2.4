@@ -13,7 +13,7 @@ Name:		%{pkgname}%{api_version}
 Summary:	C++ interface for glib
 Version:	%{version}
 Release:	%{release}
-License:	LGPL
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -106,7 +106,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-, root, root)
 %doc COPYING NEWS README
-%{_libdir}/*.so.*
+%{_libdir}/libglibmm*%{api_version}.so.%{major}*
 
 %files -n %{libnamedev}
 %defattr(-, root, root)
