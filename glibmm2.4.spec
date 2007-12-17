@@ -16,7 +16,6 @@ Release:	%{release}
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.10
 BuildRequires:	libsigc++2.0-devel
