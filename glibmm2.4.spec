@@ -1,4 +1,4 @@
-%define version 2.14.2
+%define version 2.15.0
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -18,7 +18,7 @@ Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
-BuildRequires:	glib2-devel >= 2.10
+BuildRequires:	glib2-devel >= 2.15
 BuildRequires:	libsigc++2.0-devel
 
 %description
@@ -107,6 +107,7 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %doc COPYING NEWS README
 %{_libdir}/libglibmm*%{api_version}.so.%{major}*
+%{_libdir}/libgiomm*%{api_version}.so.%{major}*
 
 %files -n %{libnamedev}
 %defattr(-, root, root)
@@ -114,6 +115,7 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.so
+%{_libdir}/giomm-%api_version
 %{_libdir}/glibmm-%{api_version}
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
