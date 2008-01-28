@@ -1,4 +1,4 @@
-%define version 2.15.2
+%define version 2.15.3
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -111,7 +111,7 @@ rm -rf %{buildroot}
 
 %files -n %{libnamedev}
 %defattr(-, root, root)
-%doc AUTHORS CHANGES ChangeLog
+%doc AUTHORS ChangeLog
 %{_includedir}/*
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.so
