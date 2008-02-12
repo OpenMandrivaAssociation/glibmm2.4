@@ -1,4 +1,4 @@
-%define version 2.15.3
+%define version 2.15.5
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -18,7 +18,7 @@ Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
-BuildRequires:	glib2-devel >= 2.15.3
+BuildRequires:	glib2-devel >= 2.15.5
 BuildRequires:	libsigc++2.0-devel
 
 %description
