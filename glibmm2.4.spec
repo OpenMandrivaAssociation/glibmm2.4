@@ -1,4 +1,4 @@
-%define version 2.15.5
+%define version 2.15.6
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -119,6 +119,7 @@ rm -rf %{buildroot}
 %{_libdir}/glibmm-%{api_version}
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
+%_datadir/devhelp/books/glibmm-2.4
 
 %files -n %{libnamestaticdev}
 %defattr(-, root, root)
