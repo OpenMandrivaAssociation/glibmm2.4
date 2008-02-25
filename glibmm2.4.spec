@@ -20,7 +20,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= 2.15.5
 BuildRequires:	libsigc++2.0-devel
-BuildRequires:	doxygen
+BuildRequires:	doxygen libxslt-proc
 
 %description
 Gtkmm provides a C++ interface to the GTK+ GUI library.
