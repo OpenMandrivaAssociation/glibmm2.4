@@ -1,4 +1,4 @@
-%define version 2.15.6
+%define version 2.15.7
 %define release %mkrel 1
 
 %define pkgname	glibmm
