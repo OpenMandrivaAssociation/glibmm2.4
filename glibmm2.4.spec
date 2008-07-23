@@ -1,4 +1,4 @@
-%define version 2.17.0
+%define version 2.17.1
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -18,7 +18,7 @@ Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
-BuildRequires:	glib2-devel >= 2.16.0
+BuildRequires:	glib2-devel >= 2.17.4
 BuildRequires:	libsigc++2.0-devel
 BuildRequires:	doxygen libxslt-proc
 
