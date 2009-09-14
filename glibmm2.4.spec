@@ -86,8 +86,6 @@ This package contains all API documentation for %{pkgname}.
 %setup -q -n %{pkgname}-%{version}
 
 %build
-# mdk does not have libtool 1.5 yet
-%define __libtoolize /bin/true
 %configure2_5x --enable-static --enable-shared
 %make
 
@@ -100,8 +98,6 @@ find %buildroot -name \*.la|xargs chmod 644
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
@@ -124,7 +120,6 @@ rm -rf %{buildroot}
 %{_libdir}/glibmm-%{api_version}
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
-%_datadir/devhelp/books/glibmm-2.4
 %_datadir/%pkgname-%api_version
 
 %files -n %{libnamestaticdev}
@@ -134,5 +129,6 @@ rm -rf %{buildroot}
 %files doc
 %defattr(-, root, root)
 %doc %{_datadir}/doc/glibmm-%{api_version}
+%_datadir/devhelp/books/glibmm-2.4
 
 
