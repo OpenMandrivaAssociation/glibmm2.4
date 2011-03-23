@@ -1,5 +1,5 @@
 %define version 2.27.98
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define pkgname	glibmm
 %define api_version 2.4
@@ -18,6 +18,7 @@ Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Patch0:		glibmm-2.27.97-fix-glibmm-pc-doctooldir.patch
 BuildRequires:	glib2-devel >= 2.28.0
 BuildRequires:	mm-common >= 0.9.4
 BuildRequires:	libsigc++2.0-devel
@@ -50,6 +51,7 @@ Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
+Requires:	mm-common >= 0.9.4
 Obsoletes: %mklibname -d %{pkgname} %{api_version} 1
 
 %description	-n %{libnamedev}
@@ -85,6 +87,7 @@ This package contains all API documentation for %{pkgname}.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p0
 
 %build
 %configure2_5x --enable-static --enable-shared
