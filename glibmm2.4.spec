@@ -1,5 +1,5 @@
-%define version 2.27.99
-%define release %mkrel 2
+%define version 2.27.99.1
+%define release %mkrel 1
 
 %define pkgname	glibmm
 %define api_version 2.4
