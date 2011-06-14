@@ -1,4 +1,4 @@
-%define version 2.28.1
+%define version 2.28.2
 %define release %mkrel 1
 
 %define pkgname	glibmm
@@ -17,7 +17,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	glib2-devel >= 2.28.0
 BuildRequires:	mm-common >= 0.9.4
 BuildRequires:	libsigc++2.0-devel
