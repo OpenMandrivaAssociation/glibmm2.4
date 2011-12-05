@@ -1,7 +1,6 @@
 %define pkgname	glibmm
 %define api_version 2.4
 %define major 1
-%define libname_orig %mklibname %{pkgname} %{api_version}
 %define libname %mklibname %{pkgname} %{api_version} %{major}
 %define libnamedev %mklibname -d %{pkgname} %{api_version}
 
