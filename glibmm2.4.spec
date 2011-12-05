@@ -1,22 +1,18 @@
-%define version 2.30.1
-%define release %mkrel 1
-
 %define pkgname	glibmm
 %define api_version 2.4
 %define major 1
 %define libname_orig %mklibname %{pkgname} %{api_version}
 %define libname %mklibname %{pkgname} %{api_version} %{major}
 %define libnamedev %mklibname -d %{pkgname} %{api_version}
-%define libnamestaticdev %mklibname -s -d %{pkgname} %{api_version}
 
 Name:		%{pkgname}%{api_version}
 Summary:	C++ interface for glib
-Version:	%{version}
-Release:	%{release}
+Version:	2.31.2
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	glib2-devel >= 2.30
 BuildRequires:	mm-common >= 0.9.4
@@ -32,7 +28,7 @@ for use with non-GUI software written in C++.
 %package	-n %{libname}
 Summary:	C++ interface for glib
 Group:		System/Libraries
-Provides:	%{libname_orig} = %{version}-%{release}
+Provides:	lib%{name} = %{version}-%{release}
 Provides:	%{pkgname}%{api_version} = %{version}-%{release}
 
 %description	-n %{libname}
@@ -49,28 +45,13 @@ Summary:	Headers and development files of %{pkgname}
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
-Provides:	%{libname_orig}-devel = %{version}-%{release}
+Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	mm-common >= 0.9.4
-Obsoletes: %mklibname -d %{pkgname} %{api_version} 1
+Obsoletes:	%mklibname -d %{pkgname} %{api_version} 1
 
 %description	-n %{libnamedev}
 This package contains the headers and development files that are needed,
 when trying to develop or compile applications which need %{pkgname}.
-
-
-%package	-n %{libnamestaticdev}
-Summary:	Static libraries of %{pkgname}
-Group:		Development/GNOME and GTK+
-Requires:	%{libnamedev} = %{version}
-Provides:	%{libname_orig}-static-devel = %{version}-%{release}
-Obsoletes: %mklibname -s -d %{pkgname} %{api_version} 1
-
-%description	-n %{libnamestaticdev}
-Gtkmm provides a C++ interface to the GTK+ GUI library.
-%{pkgname} originally belongs to gtkmm, but is now separated,
-for use with non-GUI software written in C++.
-
-This package contains the static libraries of %{pkgname}.
 
 
 %package	doc
@@ -88,7 +69,10 @@ This package contains all API documentation for %{pkgname}.
 %setup -q -n %{pkgname}-%{version}
 
 %build
-%configure2_5x --enable-static --enable-shared
+%configure2_5x \
+    -enable-static \
+    --enable-shared \
+    --disable-static
 %make
 
 # make check does nothing
@@ -96,39 +80,22 @@ This package contains all API documentation for %{pkgname}.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-find %buildroot -name \*.la|xargs chmod 644
+find %{buildroot} -name \*.la|xargs rm -f
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
 
 %files -n %{libname}
-%defattr(-, root, root)
 %doc COPYING NEWS README
 %{_libdir}/libglibmm*%{api_version}.so.%{major}*
 %{_libdir}/libgiomm*%{api_version}.so.%{major}*
 
 %files -n %{libnamedev}
-%defattr(-, root, root)
 %doc AUTHORS ChangeLog
 %{_includedir}/*
-%attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.so
-%{_libdir}/giomm-%api_version
-%{_libdir}/glibmm-%{api_version}
+%{_libdir}/giomm-%api_version/
+%{_libdir}/glibmm-%{api_version}/
 %{_libdir}/pkgconfig/*.pc
 
-%files -n %{libnamestaticdev}
-%defattr(-, root, root)
-%{_libdir}/*.a
-
 %files doc
-%defattr(-, root, root)
 %doc %{_datadir}/doc/glibmm-%{api_version}
-%_datadir/devhelp/books/glibmm-2.4
-
-
+%_datadir/devhelp/books/glibmm-2.4/
