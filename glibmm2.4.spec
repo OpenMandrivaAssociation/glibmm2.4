@@ -27,8 +27,6 @@ for use with non-GUI software written in C++.
 %package -n	%{libname}
 Summary:	C++ interface for glib
 Group:		System/Libraries
-Provides:	lib%{name} = %{version}-%{release}
-Provides:	%{pkgname}%{api_version} = %{version}-%{release}
 
 %description -n	%{libname}
 Gtkmm provides a C++ interface to the GTK+ GUI library.
@@ -44,7 +42,6 @@ Summary:	Headers and development files of %{pkgname}
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
-Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	mm-common >= 0.9.4
 Obsoletes:	%mklibname -d %{pkgname} %{api_version} 1
 
@@ -69,7 +66,7 @@ This package contains all API documentation for %{pkgname}.
 
 %build
 %configure2_5x \
-    -enable-static \
+    --enable-static \
     --enable-shared \
     --disable-static
 %make
