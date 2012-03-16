@@ -66,7 +66,6 @@ This package contains all API documentation for %{pkgname}.
 
 %build
 %configure2_5x \
-    --enable-static \
     --enable-shared \
     --disable-static
 %make
