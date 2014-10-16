@@ -1,4 +1,5 @@
 removed_sources:
   glibmm-2.34.1.tar.xz: dc3192fcce8aa36cd63ecd04666d80671c8c3ce5
-sources:
   glibmm-2.36.2.tar.xz: 399b6acd3756879fa61b185ab50abecf9652d15f
+sources:
+  glibmm-2.42.0.tar.xz: 8f316a4dfdaf49366028087085f04c0ba29cb5c2

@@ -10,8 +10,8 @@
 
 Summary:	C++ interface for glib
 Name:		%{pkgname}%{api}
-Version:	2.36.2
-Release:	7
+Version:	2.42.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gtkmm.sourceforge.net/
@@ -72,7 +72,7 @@ when trying to develop or compile applications which need %{pkgname}.
 %setup -qn %{pkgname}-%{version}
 
 %build
-%configure2_5x \
+%configure \
     --enable-shared \
     --disable-static
 %make
