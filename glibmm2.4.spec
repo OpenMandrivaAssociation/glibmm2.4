@@ -11,7 +11,7 @@
 
 Summary:	C++ interface for glib
 Name:		%{pkgname}%{api}
-Version:	2.46.1
+Version:	2.46.3
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -76,6 +76,7 @@ when trying to develop or compile applications which need %{pkgname}.
 %configure \
     --enable-shared \
     --disable-static
+
 %make
 
 # make check does nothing
@@ -101,4 +102,3 @@ when trying to develop or compile applications which need %{pkgname}.
 %{_libdir}/pkgconfig/*.pc
 %doc %{_datadir}/doc/glibmm-%{api}
 %doc %{_datadir}/devhelp/books/glibmm-2.4/
-
