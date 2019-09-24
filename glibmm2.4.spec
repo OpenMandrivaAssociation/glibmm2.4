@@ -11,7 +11,7 @@
 
 Summary:	C++ interface for glib
 Name:		%{pkgname}%{api}
-Version:	2.60.0
+Version:	2.62.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -77,12 +77,12 @@ when trying to develop or compile applications which need %{pkgname}.
     --enable-shared \
     --disable-static
 
-%make
+%make_build
 
 # make check does nothing
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libglibmm-%{api}.so.%{major}*
