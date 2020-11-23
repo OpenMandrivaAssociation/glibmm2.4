@@ -18,6 +18,7 @@ Group:		System/Libraries
 Url:		http://gtkmm.sourceforge.net/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{url_ver}/%{pkgname}-%{version}.tar.xz
 
+BuildRequires:  meson
 BuildRequires:	doxygen
 BuildRequires:	xsltproc
 BuildRequires:	pkgconfig(glib-2.0)
@@ -73,16 +74,12 @@ when trying to develop or compile applications which need %{pkgname}.
 %setup -qn %{pkgname}-%{version}
 
 %build
-%configure \
-    --enable-shared \
-    --disable-static
+%meson \
 
-%make_build
-
-# make check does nothing
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %files -n %{libname}
 %{_libdir}/libglibmm-%{api}.so.%{major}*
