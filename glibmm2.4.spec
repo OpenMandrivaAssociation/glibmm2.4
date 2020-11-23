@@ -24,6 +24,7 @@ BuildRequires:	xsltproc
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(mm-common-util)
 BuildRequires:	pkgconfig(sigc++-2.0)
+BuildRequires:  pkgconfig(libdevhelp-3.0)
 
 %description
 Gtkmm provides a C++ interface to the GTK+ GUI library.
