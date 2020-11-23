@@ -99,5 +99,3 @@ when trying to develop or compile applications which need %{pkgname}.
 %{_libdir}/giomm-%{api}/
 %{_libdir}/glibmm-%{api}/
 %{_libdir}/pkgconfig/*.pc
-%doc %{_datadir}/doc/glibmm-%{api}
-%doc %{_datadir}/devhelp/books/glibmm-2.4/
