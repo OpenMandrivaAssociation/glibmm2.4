@@ -93,7 +93,7 @@ when trying to develop or compile applications which need %{pkgname}.
 %{_libdir}/libgiomm-%{api}.so.%{major}*
 
 %files -n %{devname}
-%doc COPYING NEWS README AUTHORS ChangeLog
+%doc COPYING NEWS README* AUTHORS ChangeLog
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/giomm-%{api}/
