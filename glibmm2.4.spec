@@ -77,7 +77,6 @@ when trying to develop or compile applications which need %{pkgname}.
 
 %build
 %meson \
-
 %meson_build
 
 %install
