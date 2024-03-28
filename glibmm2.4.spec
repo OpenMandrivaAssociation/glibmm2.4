@@ -11,12 +11,12 @@
 
 Summary:	C++ interface for glib
 Name:		%{pkgname}%{api}
-Version:	2.66.6
-Release:	3
+Version:	2.66.7
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://gtkmm.sourceforge.net/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{url_ver}/%{pkgname}-%{version}.tar.xz
+Url:		https://gtkmm.sourceforge.net/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/glibmm/%{url_ver}/%{pkgname}-%{version}.tar.xz
 
 BuildRequires:  meson
 BuildRequires:	doxygen
