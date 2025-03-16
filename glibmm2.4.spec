@@ -12,7 +12,7 @@
 Summary:	C++ interface for glib
 Name:		%{pkgname}%{api}
 Version:	2.66.7
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://gtkmm.sourceforge.net/
